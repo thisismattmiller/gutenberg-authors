@@ -1,0 +1,1224 @@
+{
+    "author": {
+        "dynamic": false,
+         "_all": {
+            "index_analyzer": "autocomplete_analyzer",
+            "search_analyzer": "whitespace_analyzer"
+         },
+
+        "properties": {
+            "groups": {
+                "properties": {
+                    "about": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"about" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "dates": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"dates" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "genre": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"genre" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "people": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"people" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "personal": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"personal" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "place": {
+                        "type":"multi_field",
+                        "fields":{
+                        	"place" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "subject": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"subject" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "type": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"type" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    },
+                    "works": {
+                       "type":"multi_field",
+                        "fields":{
+                        	"works" : { "type":"string" },
+							"autocomplete":{ "analyzer":"autocomplete_analyzer", "type":"string" },
+							"untouched":{ "index":"not_analyzed", "type":"string" }
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "rdf": {
+                "properties": {
+                    "http://dbpedia.org/ontology/abstract": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/activeYearsEndDate": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/activeYearsEndYear": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/activeYearsStartDate": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/activeYearsStartYear": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/alias": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/allegiance": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/almaMater": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/award": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/battle": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/birthDate": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/birthName": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/birthPlace": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/birthYear": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/child": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/citizenship": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/country": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/deathDate": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/deathPlace": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/deathYear": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/doctoralStudent": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/education": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/era": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/field": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/genre": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/individualisedGnd": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/influenced": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/influencedBy": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/knownFor": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/language": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/lccnId": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/mainInterest": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/militaryBranch": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/militaryCommand": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/militaryRank": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/movement": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/nationality": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/notableIdea": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/notableStudent": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/notableWork": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/occupation": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/office": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/orderInOffice": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/parent": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/party": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/philosophicalSchool": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/president": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/primeMinister": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/profession": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/pseudonym": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/region": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/relation": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/relative": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/religion": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/residence": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/restingPlace": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/selibrId": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/serviceEndYear": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/serviceStartYear": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/spouse": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/stateOfOrigin": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/successor": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/termPeriod": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/thumbnail": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/title": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/viafId": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/wikiPageExternalLink": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/wikiPageID": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/ontology/wikiPageRevisionID": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/1p": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/1pp": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/2p": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/2pp": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/3p": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/3pp": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/4p": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/4pp": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/after": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/align": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/allegiance": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/almaMater": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/alongside": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/alt": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/alternativeNames": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/author": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/awards": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/b": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/battles": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/before": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/birthDate": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/birthName": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/birthPlace": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/branch": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/by": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/caption": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/children": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/citizenship": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/colwidth": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/commands": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/commons": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/date": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/dateOfBirth": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/dateOfDeath": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/deathCause": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/deathDate": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/deathPlace": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/description": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/district": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/doctoralStudents": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/education": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/era": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/ethnicity": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/field": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/fields": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/filename": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/first": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/genre": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/gnd": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/hasPhotoCollection": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/honorificPrefix": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/honorificSuffix": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/id": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/image": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/imageSize": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/imagesize": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/influenced": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/influences": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/justice": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/knownFor": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/language": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/last": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/laterwork": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/lccn": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/mainInterests": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/monarch": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/movement": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/n": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/name": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/nationality": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/no": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/notableIdeas": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/notableStudents": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/notableWorks": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/notableworks": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/occupation": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/office": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/onlinebooks": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/onlinebooksby": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/order": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/otherNames": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/p": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/parents": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/party": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/period": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/placeOfBirth": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/placeOfDeath": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/placeofburial": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/pnd": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/preceded": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/predecessor": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/president": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/primeminister": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/prizes": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/profession": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/pseudonym": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/q": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/quote": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/rank": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/region": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/relations": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/relatives": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/religion": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/residence": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/restingPlace": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/restingplace": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/ribbon": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/s": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/schoolTradition": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/selibr": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/serviceyears": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/shortDescription": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/signature": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/signatureAlt": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/source": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/species": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/spouse": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/state": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/subject": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/succeeded": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/successor": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/t": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/termEnd": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/termStart": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/title": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/type": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/url": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/v": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/viaf": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/vicepresident": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/volume": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/w": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/width": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/wikt": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/with": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/wordnet_type": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/workInstitution": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/workInstitutions": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/workplaces": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/wstitle": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/year": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/years": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://dbpedia.org/property/yearsActive": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://purl.org/dc/elements/1.1/description": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://purl.org/dc/terms/subject": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://www.w3.org/2000/01/rdf-schema#comment": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://www.w3.org/2000/01/rdf-schema#label": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://www.w3.org/2002/07/owl#sameAs": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://www.w3.org/2004/02/skos/core#subject": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://www.w3.org/ns/prov#wasDerivedFrom": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://xmlns.com/foaf/0.1/depiction": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://xmlns.com/foaf/0.1/givenName": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://xmlns.com/foaf/0.1/homepage": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://xmlns.com/foaf/0.1/name": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    },
+                    "http://xmlns.com/foaf/0.1/surname": {
+                        "type": "string",
+                        "include_in_all": false,
+                        "index": "no"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

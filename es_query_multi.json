@@ -1,0 +1,15 @@
+{
+	"fields" : ["highlight"],
+	"query": {
+		"multi_match": {
+			"query":	"Fem",
+			"fields":   [ "groups.*.autocomplete" ]
+		}
+	},
+    "highlight" : {
+        "fields" : {
+            "groups.*.autocomplete"    : {}
+        }
+    }
+
+}
