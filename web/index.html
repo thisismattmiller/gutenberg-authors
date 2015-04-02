@@ -1,0 +1,312 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/primer.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/vendor/typeahead.jquery.js"></script>
+        <script src="js/vendor/underscore.js"></script>
+
+        <script src="js/main.js"></script>
+
+        
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <div class="page-header">
+        
+            <div class="container">
+                <div id="logo">
+                    <a href="/"><img src="img/header.png"></a>
+                </div>
+                <form id="search-box-form">
+                  <div class="input-group">
+                    <input id="search-box" type="text" class="input-large" placeholder="Subjects, Places, Names, Topics">
+                    <span class="input-group-button">
+                      <button class="btn btn-search tooltipped tooltipped-e" aria-label="Search">
+                        <img src="img/go.png"/>
+                      </button>
+                    </span>
+                  </div>
+                </form>
+
+                <div id="example-links">Examples: <a href="#">librarian</a>, <a href="#">nobel</a>, <a href="#">feminist</a>, <a href="#">harvard</a>, <a href="#">brooklyn</a></div>
+            </div>
+        </div>
+
+
+        <div class="container" id="results">
+
+            <h1>About</h1>
+            <p style="font-size:1.35em">A discovery tool that connects Project Gutenberg authors to DBpedia metadata allowing you to find books based on the author’s information. For example answering questions like: “Books written by Nobel Laureates”</p>
+
+            <p style="font-size:1.35em">The focus of linked open data in cultural heritage is often centered on conversion, aggregation and publication of datasets. Less emphasis has been placed on consumption and reuse.  This demo represents the <a href="http://www.w3.org/2005/Incubator/lld/XGR-lld-usecase-20111025/">metadata enrichment use case</a> possible with linked data. By combining the DBpedia metadata with the Project Gutenberg corpus new discovery avenues open up beyond traditional bibliographic queries. While this dataset includes only 6000+ authors this type of enrichment could be scaled up to larger systems.</p>
+
+            <p style="font-size:1.35em">Created by <a href="https://twitter.com/thisismmiller">Matt Miller</a> from <a href="https://twitter.com/nypl_labs">NYPL Labs</a>. Started at our <a href="http://www.nypl.org/events/programs/2015/01/14/nyplreadium-open-book-hack-day-volume-2-public-domain">Open Book Hack Day</a> the project uses data from <a href="https://www.gutenberg.org/">Project Gutenberg</a> enriched by <a href="https://twitter.com/leonardr">Leonard Richardson</a> for the <a href="http://www.librarysimplified.org/">Library Simplified Project</a> and Wikipedia/<a href="http://dbpedia.org/">DBpedia</a> data. Code <a href="https://github.com/thisismattmiller/gutenberg-authors">found here</a>.</p>
+
+        </div>
+
+        
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script id="template-typeahead-suggestion" type="text/template">
+            <div class="typeahead-suggestion tooltipped tooltipped-w" aria-label="<%=tooltip%>"> <img aria-label="<%=tooltip%>" class="tooltipped tooltipped-w" src="img/<%=type%>.png" /><%=display%> </div>
+      
+
+        </script>
+        <script id="template-typeahead-noresult" type="text/template">
+            <div class="typeahead-suggestion"><br> No results or an error occured.<br><br> </div>
+        </script>
+
+
+        <script id="template-result" type="text/template">
+
+          <div class="columns item<%=(index % 2 !== 0) ? ' item-odd': ''%>">
+            <div class="one-fifth column">
+              <%=image%>
+            </div>
+            <div class="four-fifths column">
+
+
+              <div class="columns">
+                <div class="two-thirds column metadata">
+                  <h4><%=name%></h4>                          
+                    <% if (abstractEng.length>150){ %>
+
+
+                        <blockquote>
+                            <p>
+                                <span id="abstract-<%=index%>">
+                                <%=abstractEng.substring(0,150)%>
+                                </span>
+                                <span class="hidden-text-expander">
+                                    <a id="expand-<%=index%>" data-index="<%=index%>" href="#expand-<%=index%>">&hellip;</a>
+                                </span>
+                                <% if (Object.keys(abstractAll).length>0){ %>
+                                    <select data-index="<%=index%>" id="language-<%=index%>">
+                                        <% for (var x in abstractAll){ %>
+                                            <option <%=(x=='en') ? "selected" : ""%> data-index="<%=index%>"><%=x%></option>
+                                        <% } %>
+                                    </select>  
+                                <% } %> 
+                            </p>
+
+                        </blockquote>
+
+                    <%}else{%>
+
+                        <blockquote>
+                            <p>
+                                <span id="abstract-<%=index%>">
+                                <%=abstractEng%>
+                                </span>
+                                <% if (Object.keys(abstractAll).length>0){ %>
+                                    <select data-index="<%=index%>" id="language-<%=index%>">
+                                        <% for (var x in abstractAll){ %>
+                                            <option <%=(x=='en') ? "selected" : ""%> data-index="<%=index%>"><%=x%></option>
+                                        <% } %>
+                                    </select>    
+                                <% } %> 
+                            </p>
+                        </blockquote>
+
+
+                    <% } %>
+
+
+                    <% if (valueIndex['subject']['hits'].length + valueIndex['subject']['noHits'].length > 0){%>
+
+
+                        <img src="img/subject.png" style="width:20px;"><span class="header">Subjects</span>
+                        <ul class="metadata-ul">
+                        <% for (var x in valueIndex['subject']['hits']){ %>
+                            <li><%=valueIndex['subject']['hits'][x]%></li>                        
+                        <% } %>
+                        </ul>
+
+                        <% if (valueIndex['subject']['noHits'].length>0){ %>
+                            <span  class="hidden-text-expander meta-expand">
+                                <a aria-label="View all subjects" id="expand-subjects-<%=index%>" class="tooltipped tooltipped-w" data-index="<%=index%>" href="#expand-subjects-<%=index%>">&hellip;</a>
+                                <ul class="metadata-ul" style="display:none">
+                                <% for (var x in valueIndex['subject']['noHits']){ %>
+                                    <li><%=valueIndex['subject']['noHits'][x]%></li>                        
+                                <% } %>
+                                </ul>
+                            </span>
+                        <% } %> 
+                    <% } %> 
+
+                    <% if (valueIndex['personal']['hits'].length + valueIndex['personal']['noHits'].length > 0){%>
+                        <br><br>
+
+                        <img src="img/personal.png" style="width:20px;"><span class="header">Personal Facts</span>
+                        <ul class="metadata-ul">
+                        <% for (var x in valueIndex['personal']['hits']){ %>
+                            <li><%=valueIndex['personal']['hits'][x]%></li>                        
+                        <% } %>
+                        </ul>
+
+                        <% if (valueIndex['personal']['noHits'].length>0){ %>
+                            <span  class="hidden-text-expander meta-expand">
+                                <a aria-label="View all personal facts" id="expand-personal-<%=index%>" class="tooltipped tooltipped-w" data-index="<%=index%>" href="#expand-personal-<%=index%>">&hellip;</a>
+                                <ul class="metadata-ul" style="display:none">
+                                <% for (var x in valueIndex['personal']['noHits']){ %>
+                                    <li><%=valueIndex['personal']['noHits'][x]%></li>                        
+                                <% } %>
+                                </ul>
+                            </span>
+                        <% } %> 
+                    <% } %> 
+
+                   <% if (valueIndex['place']['hits'].length + valueIndex['place']['noHits'].length > 0){%>
+
+                       <br><br>
+                       <img src="img/place.png" style="width:20px;"><span class="header">Place</span>
+                        <ul class="metadata-ul">
+                        <% for (var x in valueIndex['place']['hits']){ %>
+                            <li><%=valueIndex['place']['hits'][x]%></li>                        
+                        <% } %>
+                        </ul>
+
+                        <% if (valueIndex['place']['noHits'].length>0){ %>
+                            <span class="hidden-text-expander meta-expand">
+                                <a aria-label="View all places" id="expand-subjects-<%=index%>" class="tooltipped tooltipped-w" data-index="<%=index%>" href="#expand-subjects-<%=index%>">&hellip;</a>
+                                <ul class="metadata-ul" style="display:none">
+                                <% for (var x in valueIndex['place']['noHits']){ %>
+                                    <li><%=valueIndex['place']['noHits'][x]%></li>                        
+                                <% } %>
+                                </ul>
+                            </span>
+                        <% } %> 
+                    <% } %> 
+
+
+                    <% if (valueIndex['genre']['hits'].length + valueIndex['genre']['noHits'].length > 0){%>
+                       <br><br>
+                       <img src="img/genre.png" style="width:20px;"><span class="header">Genre</span>
+                        <ul class="metadata-ul">
+                        <% for (var x in valueIndex['genre']['hits']){ %>
+                            <li><%=valueIndex['genre']['hits'][x]%></li>                        
+                        <% } %>
+                        </ul>
+
+                        <% if (valueIndex['genre']['noHits'].length>0){ %>
+                            <span class="hidden-text-expander meta-expand">
+                                <a aria-label="View all genres" id="expand-subjects-<%=index%>" class="tooltipped tooltipped-w" data-index="<%=index%>" href="#expand-subjects-<%=index%>">&hellip;</a>
+                                <ul class="metadata-ul" style="display:none">
+                                <% for (var x in valueIndex['genre']['noHits']){ %>
+                                    <li><%=valueIndex['genre']['noHits'][x]%></li>                        
+                                <% } %>
+                                </ul>
+                            </span>
+                        <% } %> 
+                    <% } %> 
+
+                    <% if (valueIndex['type']['hits'].length + valueIndex['type']['noHits'].length > 0){%>
+                       <br><br>
+                       <img src="img/type.png" style="width:20px;"><span class="header">Type</span>
+                        <ul class="metadata-ul">
+                        <% for (var x in valueIndex['type']['hits']){ %>
+                            <li><%=valueIndex['type']['hits'][x]%></li>                        
+                        <% } %>
+                        </ul>
+
+                        <% if (valueIndex['type']['noHits'].length>0){ %>
+                            <span class="hidden-text-expander meta-expand">
+                                <a aria-label="View all types" id="expand-subjects-<%=index%>" class="tooltipped tooltipped-w" data-index="<%=index%>" href="#expand-subjects-<%=index%>">&hellip;</a>
+                                <ul class="metadata-ul" style="display:none">
+                                <% for (var x in valueIndex['type']['noHits']){ %>
+                                    <li><%=valueIndex['type']['noHits'][x]%></li>                        
+                                <% } %>
+                                </ul>
+                            </span>
+                        <% } %> 
+                    <% } %> 
+
+                    <% if (valueIndex['works']['hits'].length + valueIndex['works']['noHits'].length > 0){%>
+                       <br><br>
+                       <img src="img/works.png" style="width:20px;"><span class="header">Works</span>
+                        <ul class="metadata-ul">
+                        <% for (var x in valueIndex['works']['hits']){ %>
+                            <li><%=valueIndex['works']['hits'][x]%></li>                        
+                        <% } %>
+                        </ul>
+
+                        <% if (valueIndex['works']['noHits'].length>0){ %>
+                            <span class="hidden-text-expander meta-expand">
+                                <a aria-label="View all works" id="expand-subjects-<%=index%>" class="tooltipped tooltipped-w" data-index="<%=index%>" href="#expand-subjects-<%=index%>">&hellip;</a>
+                                <ul class="metadata-ul" style="display:none">
+                                <% for (var x in valueIndex['works']['noHits']){ %>
+                                    <li><%=valueIndex['works']['noHits'][x]%></li>                        
+                                <% } %>
+                                </ul>
+                            </span>
+                        <% } %> 
+                    <% } %> 
+
+                    <% if (valueIndex['people']['hits'].length + valueIndex['people']['noHits'].length > 0){%>
+                       <br><br>
+                       <img src="img/people.png" style="width:20px;"><span class="header">People</span>
+                        <ul class="metadata-ul">
+                        <% for (var x in valueIndex['people']['hits']){ %>
+                            <li><%=valueIndex['people']['hits'][x]%></li>                        
+                        <% } %>
+                        </ul>
+
+                        <% if (valueIndex['people']['noHits'].length>0){ %>
+                            <span class="hidden-text-expander meta-expand">
+                                <a aria-label="View all people" id="expand-subjects-<%=index%>" class="tooltipped tooltipped-w" data-index="<%=index%>" href="#expand-subjects-<%=index%>">&hellip;</a>
+                                <ul class="metadata-ul" style="display:none">
+                                <% for (var x in valueIndex['people']['noHits']){ %>
+                                    <li><%=valueIndex['people']['noHits'][x]%></li>                        
+                                <% } %>
+                                </ul>
+                            </span>
+                        <% } %> 
+                    <% } %> 
+                </div>
+                <div class="one-third column">
+                    
+                  <img src="img/book.png" style="width:20px;"><span class="header">Titles</span><br><br>
+
+                  <% for (var x in titles){%>
+
+                    <a href="http://www.gutenberg.org/ebooks/<%=titles[x][0]%>" target="_blank"><%=titles[x][1]%></a><br><br>
+
+                  <% } %>
+
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </script>
+
+
+        <img src="img/dates.png" style="display:none"/>
+        <img src="img/genre.png" style="display:none"/>
+        <img src="img/people.png" style="display:none"/>
+        <img src="img/personal.png" style="display:none"/>
+        <img src="img/place.png" style="display:none"/>
+        <img src="img/subject.png" style="display:none"/>
+        <img src="img/type.png" style="display:none"/>
+        <img src="img/works.png" style="display:none"/>
+
+    </body>
+</html>
